@@ -8,7 +8,7 @@ public class PwValidator {
     public static boolean hasNumber(String pw){
         for (char c='0'; c<='9'; c++){
             if (pw.indexOf(c)!=-1) return true;
-        };
+        }
         return false;
     }
 
