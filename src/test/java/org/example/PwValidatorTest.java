@@ -62,6 +62,20 @@ class PwValidatorTest {
         assertTrue(PwValidator.isNoCommonPassword("Qrd347fre123"));
     }
 
+    @Test
+    void hasSpecialCharacter_shouldReturnFalseWhenCalledWith_Qe1(){
+        assertFalse(PwValidator.hasSpecialCharacter("Qw1"));
+    }
+
+    @Test
+    void hasSpecialCharacter_shouldReturnFalseWhenCalledWith_EinlangesPasswortmit1(){
+        assertFalse(PwValidator.hasSpecialCharacter("EinlangesPasswortmit1"));
+    }
+
+    @Test
+    void hasSpecialCharacter_shouldReturnTrueWhenCalledWithStarInPw(){
+        assertTrue(PwValidator.hasSpecialCharacter("Pass*wort"));
+    }
 
 
 }

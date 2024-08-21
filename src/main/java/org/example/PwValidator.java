@@ -37,4 +37,14 @@ public class PwValidator {
         return true;
     }
 
+    public static boolean hasSpecialCharacter(String pw){
+        for (int i=0; i<pw.length(); i++) {
+            char c = pw.charAt(i);
+            if ((!Character.isLetter(c)) && (!Character.isDigit(c)) ) {
+                return true;
+            }
+        }
+        return false;
+    }
+
 }
