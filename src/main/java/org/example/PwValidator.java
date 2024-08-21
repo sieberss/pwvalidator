@@ -1,6 +1,11 @@
 package org.example;
 
 public class PwValidator {
+
+    public static boolean isValid(String pw) {
+        return isLongEnough(pw) && hasNumber(pw) && hasUpperAndLowercase(pw) && isNoCommonPassword(pw) && hasSpecialCharacter(pw);
+    }
+
     public static boolean isLongEnough(String pw){
         return pw.length()>=8;
     }
