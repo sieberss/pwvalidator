@@ -28,7 +28,13 @@ public class PwValidator {
     }
 
     public static boolean isNoCommonPassword(String pw){
-        return false;
+        String[] commonPasswords = {"Admin123", "Aa123456", "P@ssw0rd", "Pass@123", "Aa@123456", "Abcd1234", "Eliska81", "Admin@123", "Demo@123", "Password1", "Passwort1", "Password123", "Passwort123"};
+        for (String commonPassword : commonPasswords) {
+            if (pw.equals(commonPassword)) {
+                return false;
+            }
+        }
+        return true;
     }
 
 }
