@@ -87,7 +87,7 @@ class PwValidatorTest {
 
     @RepeatedTest(20)
     void getRandomCharacterBetweenSpaceAndDel_shouldBeLowerThanDel(){
-        assertTrue(PwValidator.getRandomCharacterBetweenSpaceAndDel() < 127);
+        assertTrue((int) PwValidator.getRandomCharacterBetweenSpaceAndDel() < 127);
     }
 
     @RepeatedTest(100)
