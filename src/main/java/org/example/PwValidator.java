@@ -52,4 +52,19 @@ public class PwValidator {
         return false;
     }
 
+    public static String getRandomPw(){
+        StringBuilder sb = new StringBuilder();
+        for (int i=0; i<8; i++){
+            sb.append(getRandomCharacterBetweenSpaceAndDel());
+        }
+        while (!isValid(sb.toString())){
+            sb.append(getRandomCharacterBetweenSpaceAndDel());
+        }
+        return sb.toString();
+    }
+
+     static char getRandomCharacterBetweenSpaceAndDel() {
+        return (char) (33 + Math.random() * 95);
+    }
+
 }

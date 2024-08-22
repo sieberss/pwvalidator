@@ -1,5 +1,6 @@
 package org.example;
 
+import org.junit.jupiter.api.RepeatedTest;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -77,5 +78,27 @@ class PwValidatorTest {
         assertTrue(PwValidator.hasSpecialCharacter("Pass*wort"));
     }
 
+    @RepeatedTest(20)
+    void getRandomCharacterBetweenSpaceAndDel_shouldBeGreaterThanSpace(){
+        char randomChar = PwValidator.getRandomCharacterBetweenSpaceAndDel();
+        System.out.println(randomChar + "" + (int) randomChar);
+        assertTrue( randomChar > ' ');
+    }
 
+    @RepeatedTest(20)
+    void getRandomCharacterBetweenSpaceAndDel_shouldBeLowerThanDel(){
+        assertTrue(PwValidator.getRandomCharacterBetweenSpaceAndDel() < 127);
+    }
+
+    @RepeatedTest(100)
+    void getRandomPw_shouldReturnValidPw(){
+        assertTrue(PwValidator.isValid(PwValidator.getRandomPw()));
+    }
+
+    @Test
+    void getRandomPw_shouldReturnDifferentPwAtSecondCall(){
+        String pw1 = PwValidator.getRandomPw();
+        String pw2 = PwValidator.getRandomPw();
+        assertNotEquals(pw1, pw2);
+    }
 }
